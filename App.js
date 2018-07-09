@@ -7,11 +7,15 @@
  */
 
 import React, {Component} from 'react';
+import codePush from 'react-native-code-push';
 import * as DeviceInfo from 'react-native-device-info';
 import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 type Props = {};
-export default class App extends Component<Props> {
+
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
+
+class App extends Component<Props> {
 
   constructor() {
     super();
@@ -21,13 +25,16 @@ export default class App extends Component<Props> {
   }
 
   onClick() {
-    console.log('--- ' + DeviceInfo.getDeviceId());
+    codePush.sync({
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE
+    });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this.onClick.bind(this)}><Text>Click</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor:'red'}} onPress={this.onClick.bind(this)}><Text>Click1111</Text></TouchableOpacity>
       </View>
     );
   }
@@ -51,3 +58,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default App = codePush(codePushOptions)(App);
