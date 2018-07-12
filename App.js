@@ -25,10 +25,9 @@ class App extends Component<Props> {
   }
 
   onClick() {
-    codePush.sync({
-      updateDialog: true,
-      installMode: codePush.InstallMode.IMMEDIATE
-    });
+    this.props.navigator.push({
+      screen: 'View1'
+    })
   }
 
   render() {
