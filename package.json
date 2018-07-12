@@ -10,7 +10,8 @@
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-code-push": "^5.3.5",
-    "react-native-device-info": "^0.21.5"
+    "react-native-device-info": "^0.21.5",
+    "react-native-navigation": "^1.1.476"
   },
   "devDependencies": {
     "babel-jest": "23.2.0",
