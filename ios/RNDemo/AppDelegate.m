@@ -6,11 +6,12 @@
  */
 
 #import "AppDelegate.h"
-#import <React/RCTBundleURLProvider.h>
-
 #import "RCCManager.h"
-
+#import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
 
 @implementation AppDelegate
 
@@ -26,6 +27,9 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
   [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+#if RCT_DEV
+  [[[RCCManager sharedInstance] getBridge] moduleForClass:[RCTDevLoadingView class]];
+#endif
   return YES;
 }
 
