@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, FlatList, TouchableOpacity, Platform} from 'react-native';
 
 
-export default class TabView1 extends Component {
+export default class ComponentDemoContainer extends Component {
 
   constructor() {
     super();
@@ -22,7 +22,8 @@ export default class TabView1 extends Component {
         <FlatList
           ItemSeparatorComponent={Platform.OS !== 'android' && (({highlighted}) => (<View style={[{height: 0.5, backgroundColor: '#aaaaaa'}, highlighted && {marginLeft: 0}]} />))}
           data={[
-            {key: 'Component还是PureComponent？'},
+            {key: 'LegacyComponent'},
+            {key: 'PureComponent'},
           ]}
           renderItem={({item}) => (
             <TouchableOpacity style={{flex: 1}} onPress={() => {
@@ -37,9 +38,18 @@ export default class TabView1 extends Component {
   }
 
   onPressItem(item) {
-    this.props.navigator.push({
-      screen: 'ComponentDemoContainer'
-    })
+    switch (item.key) {
+      case 'LegacyComponent':
+        this.props.navigator.push({
+          screen: 'LegacyContainer'
+        })
+        break;
+      case 'PureComponent':
+        this.props.navigator.push({
+          screen: 'PureContainer'
+        })
+        break;
+    }
   }
 }
 
