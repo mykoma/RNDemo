@@ -26,7 +26,7 @@ class App extends Component<Props> {
 
   onClick() {
     this.props.navigator.push({
-      screen: 'View1'
+      screen: 'TabView1'
     })
   }
 

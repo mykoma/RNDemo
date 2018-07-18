@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 
-export default class View2 extends Component {
+export default class TabView1 extends Component {
 
   constructor() {
     super();
@@ -19,7 +19,7 @@ export default class View2 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello View2</Text>
+        <Text>Hello world</Text>
       </View>
     );
   }
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: 'red',
   }
 });
 
