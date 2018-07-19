@@ -45,15 +45,13 @@ export default class DeviceInfoList extends Component {
         {key:'serialNumber',name:DeviceInfo.getSerialNumber()},
         {key:'totalMemory',name:DeviceInfo.getTotalMemory()},
         {key:'maxMemory',name:DeviceInfo.getMaxMemory()},
-        {key:'IPAddress',name:DeviceInfo.getIPAddress},
-        {key:'MACAddress',name:DeviceInfo.getMACAddress},
       ]}
-      renderItem={({item}) => (
-        <View style={{height: 44, flexDirection: 'row', alignItems: 'center'}}>
+      renderItem={({item}) => {
+        return (<View style={{height: 44, flexDirection: 'row', alignItems: 'center'}}>
           <Text style={{position: 'absolute', left: 10}}>{item.key} </Text>
           <Text style={{position: 'absolute', right: 10}}>{item.name}</Text>
-        </View>
-      )}
+        </View>)
+      }}
 
       /* 滑动到底部触发 */
       onEndReachedThreshold={0.1}
